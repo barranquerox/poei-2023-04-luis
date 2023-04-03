@@ -3,6 +3,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pageobjects.HomePage;
 
 public class AmazonTest {
 
@@ -11,6 +12,7 @@ public class AmazonTest {
   @BeforeMethod
   public void setup() {
     driver = new ChromeDriver();
+    driver.get("https://www.amazon.fr");
     driver.manage().window().maximize();
   }
 
@@ -21,16 +23,8 @@ public class AmazonTest {
 
   @Test
   public void testAmazon() {
-    driver.get("https://www.amazon.fr");
-  }
-
-  @Test
-  public void testGoogle() {
-    driver.get("https://www.google.com");
-  }
-
-  @Test
-  public void testYoutube() {
-    driver.get("https://www.youtube.com");
+    String keyword = "iPhone 13";
+    HomePage homePage = new HomePage(driver);
+    homePage.search(keyword);
   }
 }

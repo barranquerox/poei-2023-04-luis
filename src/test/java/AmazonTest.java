@@ -41,11 +41,5 @@ public class AmazonTest {
     searchResultPage.openSearchResult(0);
     productPage.addToCart();
     Assert.assertEquals(cartPage.getProductTitle(0), keyword);
-
-    try {
-      Thread.sleep(5000);
-    } catch (InterruptedException e) {
-      throw new RuntimeException(e);
-    }
   }
 }

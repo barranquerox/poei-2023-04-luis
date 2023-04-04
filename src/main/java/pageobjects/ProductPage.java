@@ -21,11 +21,12 @@ public class ProductPage {
     this.driver = driver;
   }
 
-  public void addToCart() {
+  public CartPage addToCart() {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     driver.findElement(addToCartButtonBy).click();
 
     wait.until(ExpectedConditions.elementToBeClickable(noCoverageButtonBy)).click();
     wait.until(ExpectedConditions.elementToBeClickable(openCartButtonBy)).click();
+    return new CartPage(driver);
   }
 }

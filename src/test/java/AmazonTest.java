@@ -32,14 +32,13 @@ public class AmazonTest {
     String keyword = "Apple iPhone 14 Pro (512 Go) - Violet Intense";
 
     HomePage homePage = new HomePage(driver);
-    SearchResultPage searchResultPage = new SearchResultPage(driver);
-    ProductPage productPage = new ProductPage(driver);
-    CartPage cartPage = new CartPage(driver);
 
-    homePage.closeCookiePopup();
-    homePage.search(keyword);
-    searchResultPage.openSearchResult(0);
-    productPage.addToCart();
-    Assert.assertEquals(cartPage.getProductTitle(0), keyword);
+    String realTitle = homePage.closeCookiePopup()
+        .search(keyword)
+        .openSearchResult(0)
+        .addToCart()
+        .getProductTitle(0);
+
+    Assert.assertEquals(realTitle, keyword, "The product title is not " + keyword);
   }
 }

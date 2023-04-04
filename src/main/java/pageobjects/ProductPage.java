@@ -21,12 +21,21 @@ public class ProductPage {
     this.driver = driver;
   }
 
-  public CartPage addToCart() {
+  public CartPage addToCartAndOpenCart() {
+    clickCartButton();
+    return new CartPage(driver);
+  }
+
+  public ProductPage addToCart() {
+    clickCartButton();
+    return this;
+  }
+
+  private void clickCartButton() {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     driver.findElement(addToCartButtonBy).click();
 
     wait.until(ExpectedConditions.elementToBeClickable(noCoverageButtonBy)).click();
     wait.until(ExpectedConditions.elementToBeClickable(openCartButtonBy)).click();
-    return new CartPage(driver);
   }
 }

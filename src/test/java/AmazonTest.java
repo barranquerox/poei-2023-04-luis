@@ -36,9 +36,11 @@ public class AmazonTest {
     String realTitle = homePage.closeCookiePopup()
         .search(keyword)
         .openSearchResult(0)
-        .addToCart()
+        .addToCartAndOpenCart()
         .getProductTitle(0);
 
     Assert.assertEquals(realTitle, keyword, "The product title is not " + keyword);
   }
+
+
 }

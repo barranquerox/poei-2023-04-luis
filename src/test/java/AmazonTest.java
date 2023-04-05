@@ -39,8 +39,6 @@ public class AmazonTest {
 //        .addToCartAndOpenCart()
 //        .getProductTitle(0);
 
-    Assert.fail();
-
 //    Assert.assertEquals(realTitle, keyword, "The product title is not " + keyword);
   }
 

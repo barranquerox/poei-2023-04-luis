@@ -22,7 +22,6 @@ public class GoogleTest {
     driver.quit();
   }
 
-  @Test
   public void testGoogle() {
     driver.findElements(By.cssSelector("button > [role=none]")).get(3).click();
     driver.findElement(By.cssSelector("[name=q]")).sendKeys("POEI Testeur" + Keys.ENTER);

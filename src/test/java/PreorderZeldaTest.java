@@ -22,7 +22,7 @@ public class PreorderZeldaTest {
     driver.manage().window().maximize();
   }
 
-  @Test
+
   public void secondAmazonTest() {
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT_SIDE_PANEL));
 

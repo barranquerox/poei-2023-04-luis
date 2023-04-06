@@ -35,9 +35,16 @@ public class AmazonTest {
 
     homePage.closeCookiePopup()
         .search(keyword)
-        .openSearchResult(0);
-//        .addToCartAndOpenCart()
-//        .getProductTitle(0);
+        .openSearchResult(0)
+        .addToCartAndOpenCart()
+        .updateQuantity(0, 2)
+        .getProductTitle(0);
+
+    try {
+      Thread.sleep(3000);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
 
 //    Assert.assertEquals(realTitle, keyword, "The product title is not " + keyword);
   }

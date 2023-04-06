@@ -42,5 +42,16 @@ public class AmazonTest {
 //    Assert.assertEquals(realTitle, keyword, "The product title is not " + keyword);
   }
 
+  @Test
+  public void testHover() {
+    HomePage homePage = new HomePage(driver);
+    homePage.closeCookiePopup().createNewAccount();
+
+    try {
+      Thread.sleep(5000);
+    } catch (InterruptedException e) {
+      throw new RuntimeException(e);
+    }
+  }
 
 }
